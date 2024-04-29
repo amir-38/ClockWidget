@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clock Widget</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .cont {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(ellipse at center,  #0a2e38  0%, #000000 70%);
+      border-radius: 50%;
+      width: 20px;
+      height: 200px;
+      -webkit-app-region: drag; 
+    }
+
+    #clock {
+      font-size: 40px;
+      margin-top: 20px;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(10, 175, 230, 1),  0 0 20px rgba(10, 175, 230, 0);
+    }
+
+    #date {
+      font-size: 14px;
+      color: #ffffff;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(10, 175, 230, 1),  0 0 20px rgba(10, 175, 230, 0);
+      margin-top: 10px;
+    }
+
+    .name {
+      font-size: 10px;
+      color: #fff;
+      padding-top: 24px;
+    }
+
+    .window-controls {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+    }
+
+    .window-controls button {
+      width: 30px;
+      height: 30px;
+      border: none;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .window-controls button.close {
+      background-color: #ff5555;
+      color: white;
+      -webkit-app-region: no-drag;
+    }
+
+    .window-controls button.close:hover {
+      background-color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <div class="cont">
+    <div id="clock"></div>
+    <div id="date" class="date"></div>
+    <p class="name">by Amir Sarukhanov</p>
+  </div>
+
+  <div class="window-controls">
+    <button class="close" onclick="closeWindow()">X</button>
+  </div>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      const timeString = `${hours}:${minutes}:${seconds}`;
+      document.getElementById('clock').innerText = timeString;
+
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      const day = days[now.getDay()];
+      const month = months[now.getMonth()];
+      const date = now.getDate();
+      const year = now.getFullYear();
+      const dateString = `${day}, ${month} ${date}, ${year}`;
+      document.getElementById('date').innerText = dateString;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    function closeWindow() {
+      window.close();
+    }
+  </script>
+</body>
+</html>
