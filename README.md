@@ -30,7 +30,7 @@ ClockWidget is available for installation on Windows, macOS, and Linux operating
 
 ## Links:
 
-- [GitHub Repository](link_to_repository)
-- [Download Page](link_to_download_page)
+- "[GitHub Repository](https://github.com/amir-38/ClockWidget)"
+- "[Download Page](https://drive.google.com/file/d/1yIqvhG-VlnhTdMxljPONpx26AYHOPVn3/view?usp=sharing)"
 
 Install ClockWidget today and have the current time and date always at your fingertips!
